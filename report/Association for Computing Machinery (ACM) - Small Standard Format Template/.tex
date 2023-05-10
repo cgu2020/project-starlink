@@ -1,0 +1,307 @@
+%%
+%% This is file `sample-acmsmall.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `acmsmall')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-acmsmall.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+\documentclass[acmsmall]{acmart}
+%% NOTE that a single column version is required for 
+%% submission and peer review. This can be done by changing
+%% the \doucmentclass[...]{acmart} in this template to 
+%% \documentclass[manuscript,screen]{acmart}
+%% 
+%% To ensure 100% compatibility, please check the white list of
+%% approved LaTeX packages to be used with the Master Article Template at
+%% https://www.acm.org/publications/taps/whitelist-of-latex-packages 
+%% before creating your document. The white list page provides 
+%% information on how to submit additional LaTeX packages for 
+%% review and adoption.
+%% Fonts used in the template cannot be substituted; margin 
+%% adjustments are not allowed.
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+%%\setcopyright{acmcopyright}
+%%\copyrightyear{2018}
+%%\acmYear{2018}
+%%\acmDOI{XXXXXXX.XXXXXXX}
+
+%%
+%% These commands are for a JOURNAL article.
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Measuring Starlink Latency from RIPE Atlas}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Chris Gu}
+
+\author{Chris Yuan}
+
+
+\author{Ethan Stanley}
+
+
+\author{Devan Flores}
+
+
+\author{Charlie Mueller}
+
+
+
+
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+The Starlink Network is a collection of satellites in orbit around Earth. The satellites orbit much lower than different artificial satellites and communicate with user terminals on the ground. Our job was to use a set of RIPE Atlas probes connected to the Starlink Network to run measurements on the network. More specifically, we needed to measure latency from user terminals to a destination on the internet across the world.
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introduction}
+As mentioned above, we took measurements over the Starlink satellite network. These satellites stay close to Earth (around a few hundreds of kilometers). Since they stay so close to Earth the satellites are believed to give high throughput and low latency between different terminals. In this way different user terminals can send data to each other via the satellites. In this project we wanted to measure the latency from user terminals to a site on the Internet. To do this, it is important to know that Starlink also consists of ground stations on Earth, which serve as a connection to the Internet's fiber infrastructure. The satellites can send signals between user terminals and different ground stations. In this way, we can measure the latency from different Starlink user terminals to the Internet (user terminals send signal to satellites which bounce the signal to the nearest ground station for a site on the Internet). 
+
+How did we take these measurements? The company RIPE Atlas has a set of probes that can run and collect measurements on a given network. These probes are given to volunteers who connect a probe to their network. So, we considered the set of RIPE probes connected to the Starlink network through a Starlink user terminal. Furthermore, each probe has an ID number and some other helpful information such as the country it is located in. The measurement we are interested in is ping. Ping is the time for a user to send packets to a destination, and then the time needed to receive a response from the destination. Using ping we can get a sense of the latency of a network since ping measures RTT (round trip time). Our goal for this project was to measure the RTT time from Starlink user terminals to google.com over the course of a day using a set of RIPE probes.
+
+\section{Credit Calculation}
+It costs credits on the RIPE Atlas site to use probes to collect measurement data. Cost for ping measurements is calculated based on the total number of measurements and the amount and size of packets per ping.  
+\begin{equation}
+   \text{Unit Cost}= N * (int(S/1500) + 1)
+\end{equation}
+Where N is the number of packets and S is the size in octets.
+After doing some reading on the RIPE Atlas site we decided to send two packets for each ping measurement, giving us two RTT's for each measurement. We believed that by averaging these results we would get less variable data since after testing some of the pings we saw high variance in the RTT for different packets of the same ping. The project required us to send a ping from a probe every 15 minutes for the entirety of 24 hours. This gives us 96 pings per probe, and 192 packets per probe over the day. As will be explained below, we ended up finding 56 RIPE probes connected to the Starlink network. 192 * 56 gave us a final total of 10,752 packets, or 10,752 credits that we needed from the course staff to get the data. 
+
+
+\section{Finding Probes}
+
+As explained above, to take these measurements we needed to find a all the RIPE Atlas probes that are connected to Starlink user terminals.  Each probe has an ID number as specified by the RIPE Atlas API, which also offered a handful of functions helpful in finding probes and creating measurements. One particular API function we used was GET /api/v2/probes/, which returns a list of RIPE Atlas probes. In the API call we added in a parameter asnv4=14593, which causes the API to only return probes connected to the system with ASN = 14593. We found out that ASN 14593 is corresponds to the Starlink network through an online search. This enabled to us to use that API call to get a list of RIPE Atlas probes connected to the Starlink network. We then also used a second parameter in the API call, status=1, which caused the API to only return probes that are active. We then called the API, and turned the response into JSON. This allowed us to iterate through the returned list of probes and create a new list containing only the probe ID and country codes for each probe. This gave us what we needed to begin measuring: a list of all probe IDs corresponding to RIPE Atlas probes that are active and connected to the Starlink network. After running everything, we had a list of 56 RIPE probes. Below is a snippet of the code we wrote to find the needed probes.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{ProbeSearch.png}
+  \caption{Code used to get a list of RIPE Atlas Probes connected to Starlink.}
+  \Description{API calls for probe search.}
+\end{figure}
+
+
+\section{Creating Measurements and Getting Data}
+
+To create a measurement, we can send a post request to https://atlas.ripe.net/api/v2/measurements with the specifications of our  measurement. Using a definitions object in our header, we can specify what type of measurement we want (ping in this case), the time, interval, packet count and size, and etc. We can also define with probes to measure on explicitly in the body. Using the probes retrieved from GET /api/v2/probes/, we set the measurement to collect from those 57 probes by listing the probe IDs. Finally, we can send this POST request with our an API key generated by our RIPE Atlas account.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{create_measurement.png}
+  \caption{Code used to create a ping measurement}
+  \Description{API call for creating a measurement}
+\end{figure}
+
+Retrieving results just requires the measurement ID which is returned as a result after posting a new measurement.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{getresults.png}
+  \caption{Code used to retrieve a measurement.}
+  \Description{Code used to retrieve a measurement.}
+\end{figure}
+
+
+\section{Processing Data and Plotting}
+
+We processed the data to remove outliers using standard deviation of response times based on the probe. We plotted the data based on location of the probe as well as probe ID. Because Starlink heavily depends on ground station, plotting based on location will give more insightful results. Probes that are in the same approximate area also experience similar weather conditions and make connections to a close if not the same satellite. These factors can affect the internet connection and therefore should be account for in plotting.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{plot_code.png}
+  \caption{Code for plot generation}
+  \Description{ }
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{starlink_probes.png}
+  \caption{Starlink probes overlayed onto World Map}
+  \Description{Starlink probes overlayed onto world map}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{ground_stations.png}
+  \caption{Purple Dots represent ground stations}
+  \Description{Starlink Satellites and ground stations }
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{graph_all.png}
+  \caption{RTT Avg over Time for all probes}
+  \Description{ }
+\end{figure}
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{graph_alaska_southam.png}
+  \caption{RTT Avg over Time for Alaska (61113) and South America (26834) probes}
+  \Description{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{graph_aus.png}
+  \caption{RTT Avg over Time for Australian probes}
+  \Description{ }
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{graph_coastal_rural.png}
+  \caption{RTT Avg over Time for Coastal vs Rural America probes}
+  \Description{ }
+\end{figure}
+
+We used the python library matplotlib to generate plots. Timestamps of our data is subtracted by 810897 to zero the charts. All plots are round-trip time average over UTC time.
+
+
+\section{Analyzing Results}
+
+Figures 6 through 9 display the average round trip time (RTT) ping of various probes over the course of our 24-hour collection period. Figure 6 includes data collected from all probes, which demonstrates the high degree of variance across the different probe locations globally. However, we can refine our analysis with more specific plots and make more specific conclusions regarding how geographic location or time of day may affect RTT. 
+
+For example, we compare in Figure 7 the RTT of probe 61113 in Alaska and Probe 26834 in South America, near Santiago, Chile. We see that there is a clear performance difference, with the Alaskan probe experiencing large ping with high variance across the board. In contrast, the Chilean probe has consistently low RTT, around 45ms in the 24h cycle. These are two probes both outside of regions where most RIPE Atlas probes are located, but from Figure 5, we see that there is a ground station located near the Chilean probe while the Alaskan probe exists far from the nearest station. This likely plays a major role in the disparity plotted; regardless of satellite constellation placement, being far from a ground station would require a consistently longer network path through more satellites.
+
+Figure 8 further demonstrates the dependence of RTT ping on the probe distance to a ground station. This plot contains the RTT averages for all RIPE Atlas probes located in Australia. Probe 52918 has consistently the worst performance across the 24-hour period, because it is located in Exmouth, a town on the western coast, while the only ground station in Australia is located on the Southeast corner of country. 
+
+In Figure 9, we plot the RTT averages of American RIPE Atlas probes, labelling the ones located in rural areas in cyan and the urban ones in red. We do not see a clear disparity between the two groups, although there are a couple rural outlier probes with highly variant RTT, as seen by the cyan spikes. However, Figure 5 shows that there Starlink ground stations pretty equally dispersed across the continental United States, so it would make sense that both rural and urban areas see mostly similar RTT performances. 
+
+By and large, we see that probe distance to Starlink ground stations is the most important factor when it comes to influencing Round Trip Time ping. 
+
+\section{Potential Implications}
+
+Ultimately, our research implies that Starlink is meant as an alternative to standard broadband connections, instead of a replacement. In most scenarios, Starlink performs optimally and gives users a stable and reliable connection. However, there are several outliers that show significant issues. We believe this is due to the very nature of satellite connections and the various interruptions that can happen when transmitting over satellite. In practice, many Starlink customers complain about the unreliable nature of the technology. Everyday objects such as "trees, birds, and buildings" can cause major interruptions in signal \cite{Verge}. Starlink themselves even say that the technology was designed for areas  "where connectivity has been unreliable or completely unavailable" \cite{Starlink}. Although Starlink is a promising technology, we are very far away from completely replacing broadband.
+
+
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+
+%%
+%% If your work has an appendix, this is the place to put it.
+\appendix
+
+
+\section{Github Repository}
+Please access our github repository with relevant code here: \url{https://github.com/cgu2020/project-starlink}
+
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-acmsmall.tex'.
